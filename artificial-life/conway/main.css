@@ -50,6 +50,7 @@ main {
     box-sizing: border-box;
     margin: 0.25em;
     padding: 0.25em;
+    position: relative;
 
     height: 7em;
     width: 45%;
@@ -69,6 +70,12 @@ main {
 }
 .card p {
     margin: 0;
+    margin-left: -0.25em;
+    margin-bottom: 0.25em;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
 }
 
 #game {
