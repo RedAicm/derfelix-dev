@@ -57,7 +57,6 @@ function evoCell(x,y) {
     for(let i = -1; i < 2; i+= 1) {
         for(let j = -1; j < 2; j += 1) {
             if(i !== 0 || j !== 0) {
-                // console.log("checkCell(",x+i, y+j,")")
                 aliveNeighbors += checkCell(x+i, y+j)
             }
         }
@@ -106,10 +105,7 @@ function setup() {
     background(0);
 
     setCells()
-    frameRate(5)
-    // placeStructure(structures.find(x => x.name === "Glider").structure, 50, 50)
-
-    // noLoop()
+    frameRate(10)
 }
 
 function drawCells() {
