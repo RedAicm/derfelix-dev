@@ -2,10 +2,8 @@ const startStopBtn = document.getElementById("startStopBtn")
 const stepButton = document.getElementById("stepButton")
 const resetBtn = document.getElementById("resetBtn")
 
-// const width = 101;
-// const height = 82;
-const width = 200;
-const height = 160;
+const width = 101;
+const height = 82;
 const cell_size = 8;
 
 let cells = []
