@@ -36,6 +36,23 @@ main {
     background-color: #777;
 }
 
+#library .card {
+    width: 45%;
+    max-width: 4em;
+    background-color: white;
+    margin: 2%;
+    padding: 0.25em;
+    display: inline-block;
+}
+
+.card img {
+    width: 100%;
+    max-height: 4em;
+}
+.card p {
+    margin: 0;
+}
+
 #game {
     padding: 1em;
 }
