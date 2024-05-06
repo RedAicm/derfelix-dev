@@ -96,7 +96,7 @@ function setup() {
     background(0);
 
     setCells()
-    placeStructure(structures.find(x => x.name === "Glider").structure, 50, 50)
+    // placeStructure(structures.find(x => x.name === "Glider").structure, 50, 50)
 
     noLoop()
 }
@@ -125,7 +125,6 @@ function mouseClicked() {
     const y = floor(mouseY / cell_size)
 
     if(x >= 0 && x < width && y >= 0 && y < height) {
-        console.log("Mouse clicked", x, y)
         placeStructure(mouseStructure, x, y)
         drawCells()
     }
