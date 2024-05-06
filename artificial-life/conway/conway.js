@@ -91,12 +91,22 @@ function evolutionStep() {
     cells.splice(0,cells.length,...new_cells)
 }
 
+function setFramerate(fps) {
+    console.log("SetFrameRate", fps)
+    if(fps === 30) {
+        frameRate(100000000)
+    } else {
+        frameRate(fps)
+    }
+}
+
 function setup() {
     let cvs = createCanvas(width*cell_size, height*cell_size);
     cvs.parent("#game")
     background(0);
 
     setCells()
+    frameRate(5)
     // placeStructure(structures.find(x => x.name === "Glider").structure, 50, 50)
 
     // noLoop()
