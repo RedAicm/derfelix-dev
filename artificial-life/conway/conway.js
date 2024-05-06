@@ -1,5 +1,6 @@
 const startStopBtn = document.getElementById("startStopBtn")
 const stepButton = document.getElementById("stepButton")
+const resetBtn = document.getElementById("resetBtn")
 
 const width = 101;
 const height = 82;
@@ -98,7 +99,7 @@ function setup() {
     setCells()
     // placeStructure(structures.find(x => x.name === "Glider").structure, 50, 50)
 
-    noLoop()
+    // noLoop()
 }
 
 function drawCells() {
@@ -141,3 +142,5 @@ startStopBtn.addEventListener("click", () => {
 stepButton.addEventListener("click", () => {
     draw()
 })
+
+resetBtn.addEventListener("click", setCells)
