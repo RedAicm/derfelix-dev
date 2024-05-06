@@ -23,6 +23,12 @@ function drawStructure(canvas, structure) {
     
 }
 
+function resetLibraryEntrySelection() {
+    for(let card of document.getElementById("library").getElementsByClassName("card")) {
+        card.classList.remove("active")
+    }
+}
+
 function addLibraryEntry(entry) {
     const div = document.createElement("div")
     div.classList.add("card")
@@ -43,6 +49,8 @@ function addLibraryEntry(entry) {
     div.addEventListener("click", () => {
         console.log("Changing mouseStructure to", entry.name)
         mouseStructure = entry.structure
+        resetLibraryEntrySelection()
+        div.classList.add("active")
     })
 }
 

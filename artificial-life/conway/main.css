@@ -59,6 +59,10 @@ main {
     height: 6em */
 }
 
+#library .card.active {
+    background-color: #ccc;
+}
+
 .card canvas {
     width: 4em !important;
     height: 4em !important;
