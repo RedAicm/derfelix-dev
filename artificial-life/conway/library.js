@@ -7,10 +7,14 @@ function drawStructure(canvas, structure) {
 
     const block_size = 250 / (max_size + 2)
 
+    let x_shift = (max_size - structure[0].length) / 2
+    let y_shift = (max_size - structure.length) / 2
+    console.log(x_shift, y_shift, structure)
+
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = "black"
 
-    pixel = (x,y) => ctx.fillRect(x * block_size,y * block_size,block_size,block_size)
+    pixel = (x,y) => ctx.fillRect(x_shift * block_size + x * block_size, y_shift * block_size + y * block_size,block_size,block_size)
     
     for(let x = 0; x < structure[0].length; x+=1) {
         for(let y = 0; y < structure.length; y+=1) {
