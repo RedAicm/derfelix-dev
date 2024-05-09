@@ -1,3 +1,3 @@
 # Conways Game of Life
 
-Current amount of time spent, working on this: 6:30h
+![Taskmanager](https://img.shields.io/badge/time_spent-6h_30mins-green)
