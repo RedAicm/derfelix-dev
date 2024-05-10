@@ -10,35 +10,43 @@ const structures = [
             [1,1,1],
             [0,0,1],
             [0,1,0]
-        ]
+        ],
+        type: "periodic"
     }, 
     {
         name: "Blinker",
-        structure: [[1,1,1]]
+        structure: [[1,1,1]],
+        type: "periodic"
     }, 
     {
         name: "Block",
-        structure: [[1,1],[1,1]]
+        structure: [[1,1],[1,1]],
+        type: "static"
     }, 
     {
         name: "Tub",
-        structure: [[0,1,0], [1,0,1], [0,1,0]]
+        structure: [[0,1,0], [1,0,1], [0,1,0]],
+        type: "static"
     }, 
     {
         name: "Snake",
-        structure: [[1,1,0,1], [1,0,1,1]]
+        structure: [[1,1,0,1], [1,0,1,1]],
+        type: "static"
     },
     {
         name: "Beehive",
-        structure: [[0,1,0], [1,0,1], [1,0,1], [0,1,0]]
+        structure: [[0,1,0], [1,0,1], [1,0,1], [0,1,0]],
+        type: "static"
     },
     {
         name: "???",
-        structure: [[1,1,1], [1,0,1], [1,0,1], [0,0,0], [1,0,1], [1,0,1], [1,1,1]]
+        structure: [[1,1,1], [1,0,1], [1,0,1], [0,0,0], [1,0,1], [1,0,1], [1,1,1]],
+        type: "chaos"
     },
     {
         name:"f-Pentomino",
-        structure: [[0,1,1], [1,1,0], [0,1,0]]
+        structure: [[0,1,1], [1,1,0], [0,1,0]],
+        type: "chaos"
     },
     {
         name: "Segler (LWSS)",
@@ -47,7 +55,8 @@ const structures = [
             [1,0,0,0,1],
             [0,0,0,0,1],
             [1,0,0,1,0],
-        ]
+        ],
+        type: "periodic"
     },
     {
         name: "Segler (MWSS)",
@@ -57,7 +66,8 @@ const structures = [
             [0,0,0,0,0,1],
             [1,0,0,0,1,0],
             [0,0,1,0,0,0],
-        ]
+        ],
+        type: "periodic"
     },
     {
         name: "Segler (HWSS)",
@@ -67,7 +77,8 @@ const structures = [
             [0,0,0,0,0,0,1],
             [1,0,0,0,0,1,0],
             [0,0,1,1,0,0,0],
-        ]
+        ],
+        type: "periodic"
     },
     {
         name: "Gospers Glider Gun",
@@ -81,7 +92,8 @@ const structures = [
             [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        ]
+        ],
+        type: "periodic"
     },
     {
         name: "Oktagon",
@@ -92,7 +104,8 @@ const structures = [
             [1,1,0,0,1,1],
             [1,0,1,1,0,1],
             [0,1,1,1,1,0],
-        ]
+        ],
+        type: "periodic"
     },
     {
         name: "Die Hard",
@@ -100,7 +113,8 @@ const structures = [
             [0,0,0,0,0,0,1,0],
             [1,1,0,0,0,0,0,0],
             [0,1,0,0,0,1,1,1],
-        ]
+        ],
+        type: "chaos"
     },
     {
         name: "Acorn",
@@ -108,7 +122,8 @@ const structures = [
             [0,1,0,0,0,0,0],
             [0,0,0,1,0,0,0],
             [1,1,0,0,1,1,1],
-        ]
+        ],
+        type: "chaos"
     },
     {
         name: "Sun",
@@ -128,6 +143,7 @@ const structures = [
             [0,0,0,0,1,1,0,0,0,1,1,0,0,0,0],
             [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
             [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
-        ]
+        ],
+        type: "periodic"
     }
 ]
