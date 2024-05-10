@@ -11,8 +11,8 @@ If you have further ideas or found a bug, don't hesitate to send me a mail or cr
 - [X] Step Counter
 - [X] Change Speed of Simulation
 - [X] Library of known structures
-- [/] Different Rules
-- [/] Different Border Configurations
+- [X] Different Rules (disabled)
+- [ ] Different Border Configurations (could use improvements)
 - [ ] Run Simulation until Step X
 - [ ] Outputs: like number of living cells
 - [ ] Change Canvas Size
