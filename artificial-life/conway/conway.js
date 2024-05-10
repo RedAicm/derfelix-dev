@@ -14,29 +14,29 @@ const cell_size = 8;
 
 let cells = []
 
-let SRule = [2,3]
-let BRule = [3]
+let SRule = [3]
+let BRule = [2, 3]
 
 let stepCounter = 0
 
-mouseStructure = structures.find(x => x.name === "Blinker").structure
+mouseStructure = structures.find(x => x.name === "Glider").structure
 
-function placeStructure(structure, x,y) {
-    for(let i = 0; i < structure[0].length; i+=1) {
-        for (let j = 0; j < structure.length; j+= 1) {
-            setCell(structure[j][i], x+i, y+j)
+function placeStructure(structure, x, y) {
+    for (let i = 0; i < structure[0].length; i += 1) {
+        for (let j = 0; j < structure.length; j += 1) {
+            setCell(structure[j][i], x + i, y + j)
         }
     }
 }
 
 
 function setCell(val, x, y) {
-    cells[y*width+x] = val
+    cells[y * width + x] = val
 }
 
 function setCells() {
     cells = Array(width * height)
-    for (let i = 0; i < width * height; i+=1) {
+    for (let i = 0; i < width * height; i += 1) {
         cells[i] = 0;
     }
     stepCounter = 0
@@ -44,13 +44,13 @@ function setCells() {
 
 function setRandomCells() {
     cells = Array(width * height)
-    for (let i = 0; i < width * height; i+=1) {
+    for (let i = 0; i < width * height; i += 1) {
         cells[i] = Math.floor(Math.random() * 2);
     }
     stepCounter = 0
 }
 
-function checkCell(x,y,self) {
+function checkCell(x, y, self) {
     let border = false
     if (x > width) {
         x = 0
@@ -72,37 +72,37 @@ function checkCell(x,y,self) {
         border = true
     }
 
-    if(border) {
-        if(border_config === 0) {
+    if (border) {
+        if (border_config === 0) {
             return 0
-        } else if(border_config === 1) {
+        } else if (border_config === 1) {
             return self
         }
     }
 
-    return cells[y*width+x]
+    return cells[y * width + x]
 }
 
-function evoCell(x,y) {
-    const self = checkCell(x,y)
+function evoCell(x, y) {
+    const self = checkCell(x, y)
     let aliveNeighbors = 0
-    for(let i = -1; i < 2; i+= 1) {
-        for(let j = -1; j < 2; j += 1) {
-            if(i !== 0 || j !== 0) {
-                aliveNeighbors += checkCell(x+i, y+j, self)
+    for (let i = -1; i < 2; i += 1) {
+        for (let j = -1; j < 2; j += 1) {
+            if (i !== 0 || j !== 0) {
+                aliveNeighbors += checkCell(x + i, y + j, self)
             }
         }
     }
 
 
-    if(checkCell(x,y) === 0) {
+    if (checkCell(x, y) === 0) {
         // Dead Cell
-        if(BRule.includes(aliveNeighbors)) {
+        if (SRule.includes(aliveNeighbors)) {
             return 1
         }
     } else {
         // Alive Cell
-        if(SRule.includes(aliveNeighbors)) {
+        if (BRule.includes(aliveNeighbors)) {
             return 1
         }
     }
@@ -112,22 +112,22 @@ function evoCell(x,y) {
 
 function evolutionStep() {
     stepCounter += 1
-    let new_cells = Array(width*height)
+    let new_cells = Array(width * height)
 
-    for (let y = 0; y < height; y+=1) {
-        for(let x = 0; x < width; x+=1) {
+    for (let y = 0; y < height; y += 1) {
+        for (let x = 0; x < width; x += 1) {
             const i = y * width + x
-            new_cells[i] = evoCell(x,y)
+            new_cells[i] = evoCell(x, y)
         }
     }
-    cells.splice(0,cells.length,...new_cells)
+    cells.splice(0, cells.length, ...new_cells)
 
     updateStepCounterNode()
 }
 
 function setFramerate(fps) {
     console.log("SetFrameRate", fps)
-    if(fps === 30) {
+    if (fps === 30) {
         frameRate(100000000)
     } else {
         frameRate(fps)
@@ -135,7 +135,7 @@ function setFramerate(fps) {
 }
 
 function setup() {
-    let cvs = createCanvas(width*cell_size, height*cell_size);
+    let cvs = createCanvas(width * cell_size, height * cell_size);
     cvs.parent("#game")
     background(0);
 
@@ -144,15 +144,15 @@ function setup() {
 }
 
 function drawCells() {
-    for (let y = 0; y < height; y+=1) {
-        for(let x = 0; x < width; x+= 1) {
-            const i = y*width + x
-            if(cells[i] === 1) {
+    for (let y = 0; y < height; y += 1) {
+        for (let x = 0; x < width; x += 1) {
+            const i = y * width + x
+            if (cells[i] === 1) {
                 fill("white")
             } else {
                 fill("black")
             }
-            rect(x*cell_size,y*cell_size, cell_size, cell_size)
+            rect(x * cell_size, y * cell_size, cell_size, cell_size)
         }
     }
 }
@@ -166,14 +166,14 @@ function mouseClicked() {
     const x = floor(mouseX / cell_size)
     const y = floor(mouseY / cell_size)
 
-    if(x >= 0 && x < width && y >= 0 && y < height) {
+    if (x >= 0 && x < width && y >= 0 && y < height) {
         placeStructure(mouseStructure, x, y)
         drawCells()
     }
 }
 
 startStopBtn.addEventListener("click", () => {
-    if(isLooping()) {
+    if (isLooping()) {
         noLoop()
         startStopBtn.innerText = "Start"
     } else {
@@ -195,11 +195,40 @@ function updateStepCounterNode() {
 }
 
 borderConfigSelector.addEventListener("change", (x) => {
-    if(x.target.value === "fixed") {
+    if (x.target.value === "fixed") {
         border_config = 0
-    } else if(x.target.value === "mirror") {
+    } else if (x.target.value === "mirror") {
         border_config = 1
     } else {
         border_config = 2
     }
 })
+
+function updateRuleName() {
+    const rule_name = "B" + BRule.join("") + "/S" + SRule.join("")
+    document.getElementById("rule_name").innerText = rule_name
+    console.log("New Rule:", rule_name)
+}
+
+document.getElementById("rulesSpawnInput").addEventListener("change", (evt) => {
+    const input = evt.target.value
+    SRule = input.split("")
+    console.log("Updated SRule to", SRule)
+    updateRuleName()
+})
+
+document.getElementById("rulesBirthInput").addEventListener("change", (evt) => {
+    const input = evt.target.value
+    BRule = input.split("")
+    console.log("Updated BRule to", BRule)
+    updateRuleName()
+})
+
+
+
+
+
+
+// Other Startup things
+
+updateRuleName()
