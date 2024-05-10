@@ -50,7 +50,7 @@ function setRandomCells() {
     stepCounter = 0
 }
 
-function checkCell(x,y) {
+function checkCell(x,y,self) {
     let border = false
     if (x > width) {
         x = 0
@@ -72,19 +72,24 @@ function checkCell(x,y) {
         border = true
     }
 
-    if(border && border_config === 0) {
-        return 0
+    if(border) {
+        if(border_config === 0) {
+            return 0
+        } else if(border_config === 1) {
+            return self
+        }
     }
 
     return cells[y*width+x]
 }
 
 function evoCell(x,y) {
+    const self = checkCell(x,y)
     let aliveNeighbors = 0
     for(let i = -1; i < 2; i+= 1) {
         for(let j = -1; j < 2; j += 1) {
             if(i !== 0 || j !== 0) {
-                aliveNeighbors += checkCell(x+i, y+j)
+                aliveNeighbors += checkCell(x+i, y+j, self)
             }
         }
     }
