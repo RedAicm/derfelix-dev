@@ -1,6 +1,7 @@
 const startStopBtn = document.getElementById("startStopBtn")
 const stepButton = document.getElementById("stepButton")
 const resetBtn = document.getElementById("resetBtn")
+const stepCounterNode = document.getElementById("stepCounter")
 
 const width = 101;
 const height = 82;
@@ -10,6 +11,8 @@ let cells = []
 
 let SRule = [2,3]
 let BRule = [3]
+
+let stepCounter = 0
 
 mouseStructure = structures.find(x => x.name === "Blinker").structure
 
@@ -31,6 +34,7 @@ function setCells() {
     for (let i = 0; i < width * height; i+=1) {
         cells[i] = 0;
     }
+    stepCounter = 0
 }
 
 function checkCell(x,y) {
@@ -79,6 +83,7 @@ function evoCell(x,y) {
 }
 
 function evolutionStep() {
+    stepCounter += 1
     let new_cells = Array(width*height)
 
     for (let y = 0; y < height; y+=1) {
@@ -88,6 +93,8 @@ function evolutionStep() {
         }
     }
     cells.splice(0,cells.length,...new_cells)
+
+    updateStepCounterNode()
 }
 
 function setFramerate(fps) {
@@ -140,8 +147,10 @@ function mouseClicked() {
 startStopBtn.addEventListener("click", () => {
     if(isLooping()) {
         noLoop()
+        startStopBtn.innerText = "Start"
     } else {
         loop()
+        startStopBtn.innerText = "Stop"
     }
 })
 
@@ -150,3 +159,6 @@ stepButton.addEventListener("click", () => {
 })
 
 resetBtn.addEventListener("click", setCells)
+function updateStepCounterNode() {
+    stepCounterNode.innerText = stepCounter
+}

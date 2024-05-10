@@ -16,18 +16,32 @@
             </div>
 
             <div id="game">
-                <label><input type="checkbox" checked disabled>Torus Topology</label>
-
-                <button id="startStopBtn">Start/Stop</button>
-
-                <button id="stepButton">Step ></button>
-
-                <button id="resetBtn">Reset</button>
-
-                <label>Speed <input type="range" value="5" min="1" max="30" step="1" oninput="setFramerate(parseInt(this.value))"></label>
             </div>
             <div id="output">
+                <h2>Run</h2>
+                <div>
+                    <button id="startStopBtn">Stop</button>
+                    <button id="stepButton">Step ></button>
+
+                    <p>
+                        Simulation Steps:
+                        <code id="stepCounter"></code>
+                    </p>
+                </div>
+
+                
+                
+                <div>
+                    <label>Speed <input type="range" value="5" min="1" max="30" step="1" oninput="setFramerate(parseInt(this.value))"></label>
+                </div>
+                
+                <div>
+                    <button id="resetBtn">Reset Simulation</button>
                 Output
+                </div>
+
+                <h2>Border Configuration</h2>
+                <label><input type="checkbox" checked disabled>Torus Topology</label>
             </div>
         </main>
         <footer>
