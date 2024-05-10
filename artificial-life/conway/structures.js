@@ -4,23 +4,19 @@
 // }
 
 const static = "static"
-const oscillator = "oscillator"
 const spaceship = "spaceship"
 const machine = "machine"
 const periodic = "periodic"
 const dying = "dying"
-const moving = "moving"
 const chaos = "chaos"
 
 const structure_types = [
     static, 
     periodic, 
-    // oscillator, 
     dying, 
     spaceship, 
+    chaos,
     machine, 
-    // moving, 
-    chaos
 ]
 
 const structures = [
@@ -78,7 +74,7 @@ const structures = [
         type: static
     },
     {
-        name: "???",
+        name: "Beauty",
         structure: [[1,1,1], [1,0,1], [1,0,1], [0,0,0], [1,0,1], [1,0,1], [1,1,1]],
         type: dying
     },
@@ -143,6 +139,40 @@ const structures = [
             [1,1,0,0,1,1],
             [1,0,1,1,0,1],
             [0,1,1,1,1,0],
+        ],
+        type: periodic
+    },
+    {
+        name: "Toad",
+        structure: [
+            [0,0,0,0],
+            [0,1,1,1],
+            [1,1,1,0],
+            [0,0,0,0],
+        ],
+        type: periodic
+    },
+    {
+        name: "Beacon",
+        structure: [
+            [1,1,0,0],
+            [1,0,0,0],
+            [0,0,0,1],
+            [0,0,1,1],
+        ],
+        type: periodic
+    },
+    {
+        name: "Penta-decathlon",
+        structure: [
+            [1,1,1],
+            [1,0,1],
+            [1,1,1],
+            [1,1,1],
+            [1,1,1],
+            [1,1,1],
+            [1,0,1],
+            [1,1,1],
         ],
         type: periodic
     },
