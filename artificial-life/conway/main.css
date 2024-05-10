@@ -60,6 +60,7 @@ main {
     
     /* flex-basis: 45%;
     height: 6em */
+    border: 1px solid black;
 }
 
 #library .card.active {
@@ -102,6 +103,16 @@ button {
 
 button:hover {
     background-color: rgb(218, 218, 218);
+}
+
+select {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    cursor: pointer;
+    margin: 0.25em;
 }
 
 code#stepCounter {}
