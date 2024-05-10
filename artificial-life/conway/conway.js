@@ -3,6 +3,10 @@ const stepButton = document.getElementById("stepButton")
 const resetBtn = document.getElementById("resetBtn")
 const randomCellsBtn = document.getElementById("randomCellsBtn")
 const stepCounterNode = document.getElementById("stepCounter")
+const borderConfigSelector = document.getElementById("borderConfig")
+
+// Border config: dead (0), mirror (1), torus (2)
+let border_config = 0
 
 const width = 101;
 const height = 82;
@@ -47,21 +51,31 @@ function setRandomCells() {
 }
 
 function checkCell(x,y) {
+    let border = false
     if (x > width) {
         x = 0
+        border = true
     }
 
     if (x < 0) {
         x = width - 1
+        border = true
     }
 
     if (y > height) {
         y = 0
+        border = true
     }
 
     if (y < 0) {
         y = height - 1
+        border = true
     }
+
+    if(border && border_config === 0) {
+        return 0
+    }
+
     return cells[y*width+x]
 }
 
@@ -174,3 +188,13 @@ randomCellsBtn.addEventListener("click", setRandomCells)
 function updateStepCounterNode() {
     stepCounterNode.innerText = stepCounter
 }
+
+borderConfigSelector.addEventListener("change", (x) => {
+    if(x.target.value === "fixed") {
+        border_config = 0
+    } else if(x.target.value === "mirror") {
+        border_config = 1
+    } else {
+        border_config = 2
+    }
+})
