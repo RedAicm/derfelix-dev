@@ -12,7 +12,7 @@ If you have further ideas or found a bug, don't hesitate to send me a mail or cr
 - [X] Change Speed of Simulation
 - [X] Different Rules
 - [X] Library of known structures
-- [-] Different Border Configurations
+- [ ] Different Border Configurations
 - [ ] Run Simulation until Step X
 - [ ] Outputs: like number of living cells
 - [ ] Change Canvas Size
