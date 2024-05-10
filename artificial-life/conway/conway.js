@@ -1,6 +1,7 @@
 const startStopBtn = document.getElementById("startStopBtn")
 const stepButton = document.getElementById("stepButton")
 const resetBtn = document.getElementById("resetBtn")
+const randomCellsBtn = document.getElementById("randomCellsBtn")
 const stepCounterNode = document.getElementById("stepCounter")
 
 const width = 101;
@@ -33,6 +34,14 @@ function setCells() {
     cells = Array(width * height)
     for (let i = 0; i < width * height; i+=1) {
         cells[i] = 0;
+    }
+    stepCounter = 0
+}
+
+function setRandomCells() {
+    cells = Array(width * height)
+    for (let i = 0; i < width * height; i+=1) {
+        cells[i] = Math.floor(Math.random() * 2);
     }
     stepCounter = 0
 }
@@ -159,6 +168,9 @@ stepButton.addEventListener("click", () => {
 })
 
 resetBtn.addEventListener("click", setCells)
+
+randomCellsBtn.addEventListener("click", setRandomCells)
+
 function updateStepCounterNode() {
     stepCounterNode.innerText = stepCounter
 }
