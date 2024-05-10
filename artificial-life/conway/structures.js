@@ -3,6 +3,26 @@
 //     structure: []
 // }
 
+const static = "static"
+const oscillator = "oscillator"
+const spaceship = "spaceship"
+const machine = "machine"
+const periodic = "periodic"
+const dying = "dying"
+const moving = "moving"
+const chaos = "chaos"
+
+const structure_types = [
+    static, 
+    periodic, 
+    // oscillator, 
+    dying, 
+    spaceship, 
+    machine, 
+    // moving, 
+    chaos
+]
+
 const structures = [
     {
         name: "Glider",
@@ -11,42 +31,61 @@ const structures = [
             [0,0,1],
             [0,1,0]
         ],
-        type: "periodic"
+        type: spaceship
     }, 
     {
         name: "Blinker",
         structure: [[1,1,1]],
-        type: "periodic"
+        type: periodic
     }, 
     {
         name: "Block",
         structure: [[1,1],[1,1]],
-        type: "static"
+        type: static
     }, 
     {
         name: "Tub",
         structure: [[0,1,0], [1,0,1], [0,1,0]],
-        type: "static"
+        type: static
     }, 
     {
         name: "Snake",
         structure: [[1,1,0,1], [1,0,1,1]],
-        type: "static"
+        type: static
     },
     {
         name: "Beehive",
         structure: [[0,1,0], [1,0,1], [1,0,1], [0,1,0]],
-        type: "static"
+        type: static
+    },
+    {
+        name: "Loaf",
+        structure: [
+            [0,1,1,0],
+            [1,0,0,1],
+            [0,1,0,1],
+            [0,0,1,0],
+        ],
+        type: static
+    },
+    {
+        name: "Boat",
+        structure: [
+            [1,1,0],
+            [1,0,1],
+            [0,1,0],
+        ],
+        type: static
     },
     {
         name: "???",
         structure: [[1,1,1], [1,0,1], [1,0,1], [0,0,0], [1,0,1], [1,0,1], [1,1,1]],
-        type: "chaos"
+        type: dying
     },
     {
         name:"f-Pentomino",
         structure: [[0,1,1], [1,1,0], [0,1,0]],
-        type: "chaos"
+        type: chaos
     },
     {
         name: "Segler (LWSS)",
@@ -56,7 +95,7 @@ const structures = [
             [0,0,0,0,1],
             [1,0,0,1,0],
         ],
-        type: "periodic"
+        type: spaceship
     },
     {
         name: "Segler (MWSS)",
@@ -67,7 +106,7 @@ const structures = [
             [1,0,0,0,1,0],
             [0,0,1,0,0,0],
         ],
-        type: "periodic"
+        type: spaceship
     },
     {
         name: "Segler (HWSS)",
@@ -78,7 +117,7 @@ const structures = [
             [1,0,0,0,0,1,0],
             [0,0,1,1,0,0,0],
         ],
-        type: "periodic"
+        type: spaceship
     },
     {
         name: "Gospers Glider Gun",
@@ -93,7 +132,7 @@ const structures = [
             [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         ],
-        type: "periodic"
+        type: machine
     },
     {
         name: "Oktagon",
@@ -105,7 +144,7 @@ const structures = [
             [1,0,1,1,0,1],
             [0,1,1,1,1,0],
         ],
-        type: "periodic"
+        type: periodic
     },
     {
         name: "Die Hard",
@@ -114,7 +153,7 @@ const structures = [
             [1,1,0,0,0,0,0,0],
             [0,1,0,0,0,1,1,1],
         ],
-        type: "chaos"
+        type: dying
     },
     {
         name: "Acorn",
@@ -123,10 +162,10 @@ const structures = [
             [0,0,0,1,0,0,0],
             [1,1,0,0,1,1,1],
         ],
-        type: "chaos"
+        type: chaos
     },
     {
-        name: "Sun",
+        name: "Pulsar",
         structure: [
             [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
             [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
@@ -144,6 +183,6 @@ const structures = [
             [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
             [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
         ],
-        type: "periodic"
+        type: periodic
     }
 ]

@@ -1,5 +1,21 @@
 let lib = document.getElementById("library")
 
+let lib_static = document.getElementById("lib_static")
+let lib_periodic = document.getElementById("lib_periodic")
+let lib_chaos = document.getElementById("lib_chaos")
+
+function addStructureTypeSections() {
+    for(let type of structure_types) {
+        const name = type.charAt(0).toUpperCase()+type.slice(1)
+        const h3 = document.createElement("h3")
+        h3.innerText = name
+        const section = document.createElement("section")
+        section.id = "lib_"+type
+        section.appendChild(h3)
+        lib.appendChild(section)
+    }
+}
+
 function drawStructure(canvas, structure) {
     max_size = structure.length
     if (structure[0].length > max_size)
@@ -48,7 +64,7 @@ function addLibraryEntry(entry) {
     div.appendChild(cvs)
     div.appendChild(text)
 
-    lib.appendChild(div)
+    document.getElementById("lib_"+entry.type).appendChild(div)
 
     div.addEventListener("click", () => {
         console.log("Changing mouseStructure to", entry.name)
@@ -59,6 +75,7 @@ function addLibraryEntry(entry) {
 }
 
 function populateLibrary() {
+    addStructureTypeSections()
     for (const struc of structures) {
         addLibraryEntry(struc)
     }
