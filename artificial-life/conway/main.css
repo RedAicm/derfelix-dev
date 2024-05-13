@@ -29,11 +29,56 @@ footer {
     text-align: center;
 }
 
+footer a, a:visited {
+    color: cyan
+}
+
 main {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     width: 100vw;
+    max-height: calc(100vh - 5em);
     background-color: #777;
+}
+
+#library {
+    padding: 0.5em;
+    overflow-y: auto;
+}
+
+#library .card {
+    text-align: center;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 0.25em;
+    padding: 0.25em;
+    position: relative;
+
+    height: 7em;
+    width: 45%;
+    display: inline-block;
+    
+    /* flex-basis: 45%;
+    height: 6em */
+    border: 1px solid black;
+}
+
+#library .card.active {
+    background-color: #ccc;
+}
+
+.card canvas {
+    width: 4em !important;
+    height: 4em !important;
+}
+.card p {
+    margin: 0;
+    margin-left: -0.25em;
+    margin-bottom: 0.25em;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
 }
 
 #game {
@@ -45,3 +90,29 @@ main {
     height: auto !important;
 
 }
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    cursor: pointer;
+    margin: 0.25em;
+}
+
+button:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+select {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    cursor: pointer;
+    margin: 0.25em;
+}
+
+code#stepCounter {}

@@ -3,7 +3,9 @@
         <link rel="stylesheet" href="main.css">
         <script defer data-domain="derfelix.dev" src="https://plausible.io/js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
-        <script src="conway.js"></script>
+        <script src="structures.js" defer></script>
+        <script src="conway.js" defer></script>
+        <script src="library.js" defer></script>
     </head>
     <body>
         <header>
@@ -11,16 +13,64 @@
         </header>
         <main>
             <div id="library">
-                Library
+                <h2>Structures</h2>
+                <!-- Rotate
+                <button>left</button>
+                <button>right</button> -->
             </div>
+
             <div id="game">
             </div>
             <div id="output">
-                Output
+                <h2>Run</h2>
+                <div>
+                    <button id="startStopBtn">Stop</button>
+                    <button id="stepButton">Step ></button>
+
+                    <p>
+                        Simulation Steps:
+                        <code id="stepCounter"></code>
+                    </p>
+                </div>
+
+                
+                
+                <div>
+                    <label>Speed <input type="range" value="5" min="1" max="30" step="1" oninput="setFramerate(parseInt(this.value))"></label>
+                </div>
+                
+                <div>
+                    <button id="resetBtn">Reset Simulation</button>
+                    <button id="randomCellsBtn">Random Cells</button>
+                </div>
+
+                <!-- <h2>Rule (<code id="rule_name"></code>)</h2>
+                <div>
+                    <label>
+                        Birth:
+                        <input id="rulesBirthInput" type="text" value="23">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Spawn:
+                        <input id="rulesSpawnInput" type="text" value="3">
+                    </label>
+                </div> -->
+
+                <h2>Border Configuration</h2>
+                <select name="" id="borderConfig">
+                    <option value="fixed">Fixed (dead)</option>
+                    <option value="mirror">Mirror</option>
+                    <option value="torus">Torus (wrap)</option>
+                </select>
             </div>
         </main>
         <footer>
-            &copy; 2024 Felix Viola - Created within the Artifical Life Course at the University of Bonn
+            &copy; 2024 Felix Viola - 
+            Created within the Artifical Life Course at the University of Bonn
+            -
+            [ <a href="https://github.com/derfelix42/derfelix-dev/tree/main/artificial-life/conway" target="_blank">Source Code</a> ]
         </footer>
     </body>
 </html>
