@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common.css">
+    <script src="look-and-say.js" defer></script>
+    <title>Look-and-Say Sequence Tool | Artifical Life | derFelix.dev</title>
+</head>
+
+<body>
+    <header>
+        <h1>Artifical Life - Look-and-Say Sequence Tool</h1>
+    </header>
+    <main>
+        <div></div>
+        <div>
+            <h2>Look-and-Say Sequence Tool</h2>
+            <p>This tool quickly generates the Look-and-Say Sequence for any number input for a given number of steps.</p>
+            <p>The Look-and-Say Sequence creates its next state by literally saying out loud what it sees. For example if it sees "1", it says "one 1", resulting in the output of "11". Looking at this output it now sees "two 1", resulting in the next output being "21" and so on.</p>
+            <br>
+            <p><b>Start Input:</b></p>
+            <input type="text" name="" id="start_sequence_input" value="2024">
+
+            <p><b>Number of iterations:</b></p>
+            <input type="number" name="" id="sequence_iter_steps" value="6">
+
+            <p>
+                <button id="run_sequence" class="primary">Calcualte Sequence!</button>
+            </p>
+
+            <br>
+
+            <p><b>Output:</b><em id="error_output" class="error"></em></p>
+
+            <div id="sequence_output"></div>
+        </div>
+        <div></div>
+    </main>
+    <footer>
+        &copy; 2024 Felix Viola -
+        Created within the Artifical Life Course at the University of Bonn
+        -
+        [ <a href="https://github.com/derfelix42/derfelix-dev/tree/main/artificial-life/look-and-say"
+            target="_blank">Source Code</a> ]
+    </footer>
+</body>
+
+</html>
