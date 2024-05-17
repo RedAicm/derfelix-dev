@@ -22,7 +22,7 @@ If you have further ideas or found a bug, don't hesitate to send me a mail or cr
 - [ ] Implement Rule Evaluation as Kernels in WebGL for better performance ^^'
 
 #### Contributions
-If you want to contribute to this simulation, feel free to do so - i'll happly merge a good pull request :)
+If you want to contribute to this simulation, feel free to do so - I'll happily merge a good pull request :)
 
 #### Testing
-As this project does not have any dependencies (except for p5.js which is loaded by the browser via CDN), you can simply open the `index.html` in your browser and everything should be ready for testing already. If you want to be fancier, you can also use your http server of choice. I use `npx http-server` to run the http-server package from npm without installing it.
+As this project does not have any dependencies (except for p5.js which is loaded by the browser via CDN), you can simply open the `index.html` in your browser and everything should be ready for testing already. If you want to be fancier, you can also use your HTTP server of choice. I use `npx http-server` to run the http-server package from npm without installing it.
