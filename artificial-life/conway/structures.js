@@ -216,3 +216,7 @@ const structures = [
         type: periodic
     }
 ]
+
+function rotateStructureClockwise(structure) {
+    return structure[0].map((val, index) => structure.map(row => row[index]).reverse())
+}

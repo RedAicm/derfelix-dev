@@ -40,6 +40,8 @@ function setCells() {
         cells[i] = 0;
     }
     stepCounter = 0
+    updateStepCounterNode()
+    drawCells()
 }
 
 function setRandomCells() {
@@ -48,6 +50,8 @@ function setRandomCells() {
         cells[i] = Math.floor(Math.random() * 2);
     }
     stepCounter = 0
+    updateStepCounterNode()
+    drawCells()
 }
 
 function checkCell(x, y, self) {
@@ -141,6 +145,8 @@ function setup() {
 
     setCells()
     frameRate(10)
+
+    noLoop()
 }
 
 function drawCells() {

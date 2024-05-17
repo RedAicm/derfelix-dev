@@ -87,6 +87,18 @@ main {
     bottom: 0;
 }
 
+.card button {
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url("./conway/rotate-right-solid.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
 #game {
     padding: 1em;
 }

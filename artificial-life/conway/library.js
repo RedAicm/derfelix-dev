@@ -28,6 +28,7 @@ function drawStructure(canvas, structure) {
     console.log(x_shift, y_shift, structure)
 
     const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = "black"
 
     pixel = (x,y) => ctx.fillRect(x_shift * block_size + x * block_size, y_shift * block_size + y * block_size,block_size,block_size)
@@ -53,6 +54,8 @@ function addLibraryEntry(entry) {
     const div = document.createElement("div")
     div.classList.add("card")
 
+    const btn = document.createElement("button")
+
     const cvs = document.createElement("canvas")
     cvs.width = "250"
     cvs.height = "250"
@@ -63,6 +66,7 @@ function addLibraryEntry(entry) {
 
     div.appendChild(cvs)
     div.appendChild(text)
+    div.appendChild(btn)
 
     document.getElementById("lib_"+entry.type).appendChild(div)
 
@@ -71,6 +75,15 @@ function addLibraryEntry(entry) {
         mouseStructure = entry.structure
         resetLibraryEntrySelection()
         div.classList.add("active")
+    })
+
+    btn.addEventListener("click", (event) => {
+        entry.structure = rotateStructureClockwise(entry.structure)
+        drawStructure(cvs, entry.structure)
+        // don't select element when not already selected
+        if (!div.classList.contains("active")) {
+            event.stopPropagation()
+        }
     })
 }
 
